@@ -1,7 +1,6 @@
 import { useContext, useState } from "react"
 import { UserContext } from "../context"
-import { useNavigate, useParams } from "react-router-dom"
-import GameLogic from "../components/GameLogic"
+import { Navigate, useNavigate, useParams } from "react-router-dom"
 
 import style from './Game.module.css'
 
@@ -11,27 +10,29 @@ export default function Game() {
   const { size } = useParams()
   const [gameId, setGameId] = useState()
   
+
+
   function generateGameID() {
     return Math.floor(Math.random()*10000)
   }
 
   if (!user) {
-    navigate('/login')
+    return <Navigate to='/login' replace />
   }
 
-
+  // const gameId = setGameId(generateGameID)
 
 
 
   return (
-    <div>
-      Game
+    <div className={style.container}>
+      
 
-      {/* <Game>
+      {/* <GameLogic>
 
         const game = new Game(size)
         game.initialise()
-      </Game> */}
+      </GameLogic> */}
 
 
     </div>

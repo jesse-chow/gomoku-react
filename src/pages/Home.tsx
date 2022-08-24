@@ -14,9 +14,11 @@ export default function Home() {
     if (!user) {
       navigate('/login')
     }
-    return (
-      navigate(`game/${boardSize}`)
-    )
+    else {
+      return (
+        navigate(`game/${boardSize}`)
+      )
+    }
   }
 
   return (

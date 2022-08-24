@@ -1,11 +1,15 @@
 import { useContext } from "react"
-import { Navigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 import { UserContext } from "../context"
 
 export default function Log() {
+
   const { user } = useContext(UserContext)
+  const navigate = useNavigate()
+
   if (!user) {
-    return <Navigate to='/login' replace />
+    navigate('/login')
   }
+  
   return <div>Log</div>
 }

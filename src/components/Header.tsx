@@ -15,15 +15,13 @@ export default function Header() {
           <button className={style.action} onClick={() => {
               logout() 
               navigate('/')
-            }}
-          >
+            }}>
             Logout
           </button>
 
           <button className={style.action} onClick={() => { 
               navigate('/games')
-            }}
-          >
+            }}>
             Previous Games
           </button>
         </>

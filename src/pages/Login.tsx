@@ -12,7 +12,7 @@ export default function Login() {
   const navigate = useNavigate()
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [isCredentialInvalid, setIsCredentialInvalid]= useState(false)
+  const [isCredentialInvalid, setIsCredentialInvalid] = useState(false)
 
   const handleLogin = () => {
     const user = users.find(

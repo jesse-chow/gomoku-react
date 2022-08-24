@@ -12,7 +12,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='login' element={<Login />} />
-          <Route path='game' element={<Game />} />
+          <Route path='game/:size' element={<Game />} />
           <Route path='games' element={<Games />} />
           <Route path='game-log/:id' element={<Log />} />
           <Route path='*' element={<Navigate to='/' replace />} />

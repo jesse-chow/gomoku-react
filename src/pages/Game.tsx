@@ -56,7 +56,7 @@ export default function Game() {
     if (turnCounter >= rows*columns) {
       return <h1 className={style.gameStatusGameOver}>Game Over: Draw!</h1>
     }
-    if (gameState === true) {
+    else if (gameState === true) {
       if (turnCounter % 2 === 0) {
         return <h1 className={style.gameStatusBlack}>Current Player: Black</h1>
       }
@@ -64,16 +64,18 @@ export default function Game() {
         return <h1 className={style.gameStatusWhite}>Current Player: White</h1>
       }
     }
-  }
-
-  const handleGameState = () => {
-    if (turnCounter > rows*columns) {
-      setGameState(false)
+    else if (gameState === false) {
+      // if (black wins) {
+      //   return <h1 className={style.gameStatusBlack}>Game Over: Black Wins!</h1>
+      // }
+      // else if (white wins) {
+      //   return <h1 className={style.gameStatusWhite}>Game Over: White Wins!</h1>
+      // }
     }
   }
 
   const handleRestartButton = () => {
-
+    
   }
 
   const handleLeaveButton = () => {
@@ -98,8 +100,8 @@ export default function Game() {
             playBlack = {() => dispatch({ type: PlayStoneActionType.BLACK, payload: index})}
             playWhite = {() => dispatch({ type: PlayStoneActionType.WHITE, payload: index})}
             updateGameState = {() => {
+              console.log(state)
               setTurnCounter(turnCounter + 1)
-              handleGameState()
             }}
           />
         ))}

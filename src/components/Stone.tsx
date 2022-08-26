@@ -33,13 +33,11 @@ export default function Stone(props: StoneProps) {
   const handleClick = () => {
     if (status === STATUS.EMPTY && turnCounter % 2 === 0) {
       setStatus(STATUS.BLACK)
-      console.log('Black Stones', id)
       playBlack()
       updateGameState()
     }
     else if (status === STATUS.EMPTY && turnCounter % 2 === 1) {
       setStatus(STATUS.WHITE)
-      console.log('White Stones', id)
       playWhite()
       updateGameState()
     }

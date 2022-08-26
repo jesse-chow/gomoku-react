@@ -8,3 +8,8 @@ export enum PLAYER {
     BLACK,
     WHITE,
 }
+
+export enum PlayStoneActionType {
+    BLACK = 'BLACK',
+    WHITE = 'WHITE',
+}

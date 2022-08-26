@@ -4,14 +4,17 @@ import { STATUS } from '../constants'
 import style from './Stone.module.css'
 
 type StoneProps = {
-    id: number
-    status: STATUS
+  id: number
+  turnCounter: number
+  status: STATUS
+  updateGameState: () => void
+  playBlack: () => void
+  playWhite: () => void
 }
 
 export default function Stone(props: StoneProps) {
-  const { id } = props
+  const { id, turnCounter, updateGameState, playBlack, playWhite } = props
   const [status, setStatus] = useState(STATUS.EMPTY)
-  const [turnCounter, setTurnCounter] = useState(0)
 
   const getClassNames = () => {
     const className = style.stone
@@ -30,14 +33,18 @@ export default function Stone(props: StoneProps) {
   const handleClick = () => {
     if (status === STATUS.EMPTY && turnCounter % 2 === 0) {
       setStatus(STATUS.BLACK)
+      console.log('Black Stones', id)
+      playBlack()
+      updateGameState()
     }
     else if (status === STATUS.EMPTY && turnCounter % 2 === 1) {
       setStatus(STATUS.WHITE)
+      console.log('White Stones', id)
+      playWhite()
+      updateGameState()
     }
-    setTurnCounter(turnCounter + 1)
   }
   
-
   return (
     <div 
       className={getClassNames()}

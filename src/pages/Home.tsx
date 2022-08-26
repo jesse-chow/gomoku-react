@@ -8,24 +8,28 @@ export default function Home() {
 
   const { user } = useContext(UserContext)
   const navigate = useNavigate()
-  const [boardSize, setBoardSize] = useState('')
+  const [size, setSize] = useState('')
+  const id = generateGameID()
+
+  function generateGameID() {
+    return Math.floor(Math.random()*10000)
+  }
 
   const handleButton = () => {
     if (!user) {
       navigate('/login')
     }
-    else {
-      return (
-        navigate(`game/${boardSize}`)
-      )
-    }
+    
+    return (
+      navigate(`game/${size}/${id}`)
+    )
   }
 
   return (
     <div className={style.container}>
       <select 
         className={style.select} 
-        onChange={(e) => setBoardSize(e.target.value)}
+        onChange={(e) => setSize(e.target.value)}
       >
         <option defaultChecked selected disabled>Board Size</option>
         <option value={5}>5</option>

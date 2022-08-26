@@ -3,7 +3,7 @@ import { Navigate, useNavigate } from "react-router-dom"
 import { UserContext } from "../context"
 import { useLocalStorage } from '../hooks'
 
-import style from './Game.module.css'
+import style from './Games.module.css'
 
 export default function Games() {
   const { user } = useContext(UserContext)

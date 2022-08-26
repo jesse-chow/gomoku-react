@@ -35,7 +35,7 @@ export default function Games() {
 
             <button
               className={style.button}
-              // onClick={() => navigate(`/game/${size}/${gameId}`)}
+              onClick={() => navigate(`/game-log/${gameId}`)}
             >
               View Game Log
             </button>
